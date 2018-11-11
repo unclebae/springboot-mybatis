@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mybatis.demomybatis.test.TestTableMapper">
+
+    <select id="selectTestById" resultType="Test">
+        SELECT ID
+              ,NAME
+              ,ADDRESS
+              ,CREATEDAT
+          FROM TESTTABLE
+         WHERE ID = #{id}
+    </select>
+
+    <select id="selectAllTest" resultType="Test">
+        SELECT ID
+              ,NAME
+              ,ADDRESS
+              ,CREATEDAT
+          FROM TESTTABLE
+    </select>
+
+    <insert id="insertTest" parameterType="Test">
+      INSERT INTO TESTTABLE (NAME, ADDRESS, CREATEDAT)
+      VALUES (#{name}, #{address}, now())
+    </insert>
+
+</mapper>
